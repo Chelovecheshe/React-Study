@@ -26,6 +26,19 @@ const TableWrapper = styled.ul`
   li:nth-child(${props => props.columnNames.length}n+1) {
     text-align: left;
   }
+
+  @media (max-width: 850px) {
+    li {
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    li {
+      padding: 1px 5px;
+    }
+  }
 `;
 
 export default TableWrapper;

@@ -1,26 +1,53 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+
+// components
+import Wrapper from "./themes/wrapper.js";
+import Tabs from "./components/tab/tabs.js";
+import TabContent from "./themes/tab/tabContent.js";
+import Accordion from "./containers/accordion/accordion.js";
+import Table from "./components/table/table.js";
+// styles
+import "./App.css";
+// constants
+import {
+  accordionsNames,
+  buttonsNames,
+  contentList,
+  tableColumnNames,
+  tableContent
+} from "./constants/constans.js";
 
 class App extends Component {
+  state = {
+    active: 1
+  };
+
+  setActiveTab = number => {
+    this.setState({ active: number });
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Wrapper>
+        <Tabs
+          names={buttonsNames}
+          setActiveTab={this.setActiveTab}
+          active={this.state.active}
+        />
+        {this.state.active === 0 && (
+          <TabContent>
+            <Accordion names={accordionsNames} content={contentList} />
+          </TabContent>
+        )}
+        {this.state.active === 1 && (
+          <TabContent>
+            <Table columnNames={tableColumnNames} tableContent={tableContent} />
+          </TabContent>
+        )}
+        {this.state.active === 2 && (
+          <TabContent>Snack bar creator arrives soon here</TabContent>
+        )}
+      </Wrapper>
     );
   }
 }

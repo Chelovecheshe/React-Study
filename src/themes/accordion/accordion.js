@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const AccordionStyled = styled.div`
   background-color: #ffffff;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   box-sizing: border-box;
   border-radius: 3px;
   line-height: 20px;
@@ -10,6 +10,10 @@ export const AccordionStyled = styled.div`
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export const Arrow = styled.button`
@@ -18,7 +22,7 @@ export const Arrow = styled.button`
   background-repeat: no-repeat;
   outline: none;
   border: none;
-  background-color: #c0c0c0;
+  background-color: #fcbf49;
   float: right;
   cursor: pointer;
   padding: 0;

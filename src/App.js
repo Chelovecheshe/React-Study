@@ -1,55 +1,35 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-// components
-import Wrapper from "./themes/wrapper.js";
-import Tabs from "./components/tab/tabs.js";
-import TabContent from "./themes/tab/tabContent.js";
-import Accordion from "./containers/accordion/accordion.js";
-import Table from "./components/table/table.js";
+// containers
+import TabBar from "./containers/tab/tabBar";
+import TabView from "./containers/tab/tabView";
+// libs
+import TabsWrapper from "./libs/withTabs";
 // styles
 import "./App.css";
+import Wrapper from "./themes/wrapper";
 // constants
-import {
-  accordionsNames,
-  buttonsNames,
-  contentList,
-  tableColumnNames,
-  tableContent
-} from "./constants/constans.js";
+import { ENUM, buttonsNames } from "./constants/constans";
 
-class App extends Component {
-  state = {
-    active: 1
-  };
+const App = () => {
+  const [value, setValue] = useState(ENUM.FIRST);
 
-  setActiveTab = number => {
-    this.setState({ active: number });
-  };
+  const handleClick = nextTab => setValue(nextTab);
 
-  render() {
-    return (
-      <Wrapper>
-        <Tabs
-          names={buttonsNames}
-          setActiveTab={this.setActiveTab}
-          active={this.state.active}
-        />
-        {this.state.active === 0 && (
-          <TabContent>
-            <Accordion names={accordionsNames} content={contentList} />
-          </TabContent>
-        )}
-        {this.state.active === 1 && (
-          <TabContent>
-            <Table columnNames={tableColumnNames} tableContent={tableContent} />
-          </TabContent>
-        )}
-        {this.state.active === 2 && (
-          <TabContent>Snack bar creator arrives soon here</TabContent>
-        )}
-      </Wrapper>
-    );
-  }
-}
+  return (
+    <Wrapper>
+      <TabsWrapper
+        tabBar={
+          <TabBar
+            names={buttonsNames}
+            setActiveTab={handleClick}
+            active={value}
+          />
+        }
+        tabView={<TabView active={value} />}
+      />
+    </Wrapper>
+  );
+};
 
 export default App;

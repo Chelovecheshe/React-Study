@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 // styles
-import TableWrapper from "../../themes/table/tableWrapper.js";
-import TableHead from "../../themes/table/tableHead.js";
-import TableContent from "../../themes/table/tableContent.js";
+import TableWrapper from "../../themes/table/tableWrapper";
+import TableHead from "../../themes/table/tableHead";
+import TableContent from "../../themes/table/tableContent";
 
 const Table = ({ columnNames, tableContent }) => {
   const headers = columnNames.map((item, index) => (

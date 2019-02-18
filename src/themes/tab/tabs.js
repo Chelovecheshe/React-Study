@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TabsStyled = styled.div`
   height: 50px;
   width: 100%;
-  background-color: #3a6ea5;
+  background-color: #609da0;
   border-radius: 3px 3px 0 0;
   overflow: hidden;
 

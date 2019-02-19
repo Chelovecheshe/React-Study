@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 // components
 import Table from "../../components/table/table";
 // containers
-import Accordion from "../../containers/accordion/accordion";
+import Accordion from "../../components/accordion/accordion";
 // libs
 import AccordionWrapper from "../../libs/withAccordion";
 // styles

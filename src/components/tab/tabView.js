@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 // components
-import Table from "components/table/table";
+import Table from "containers/table/table";
 // containers
-import Accordion from "components/accordion/accordion";
+import Accordion from "containers/accordion/accordion";
 // styles
 import TabContent from "themes/tab/tabContent";
 // constants

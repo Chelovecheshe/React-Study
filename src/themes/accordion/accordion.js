@@ -27,4 +27,6 @@ export const Arrow = styled.button`
 export const AccordionContent = styled.div`
   display: block;
   width: 100%;
+  transition: 4s easy;
+  transition-delay: 2s;
 `;

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 // containers
-import TabBar from "containers/tab/tabBar";
-import TabView from "containers/tab/tabView";
+import TabBar from "components/tab/tabBar";
+import TabView from "components/tab/tabView";
 // styles
 import GlobalStyle from "themes/globalStyle";
 import Wrapper from "themes/wrapper";

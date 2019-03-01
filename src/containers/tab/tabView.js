@@ -1,13 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 // components
-import Table from "../../components/table/table";
+import Table from "components/table/table";
 // containers
-import Accordion from "../../components/accordion/accordion";
-// libs
-import AccordionWrapper from "../../libs/withAccordion";
+import Accordion from "components/accordion/accordion";
 // styles
-import TabContent from "../../themes/tab/tabContent";
+import TabContent from "themes/tab/tabContent";
 // constants
 import {
   ENUM,
@@ -15,17 +13,13 @@ import {
   contentList,
   tableColumnNames,
   tableContent
-} from "../../constants/constans";
+} from "constants/constans";
 
 const TabView = ({ active }) => {
   return (
     <TabContent>
       {active === ENUM.FIRST && (
-        <AccordionWrapper
-          accordion={
-            <Accordion names={accordionsNames} content={contentList} />
-          }
-        />
+        <Accordion names={accordionsNames} content={contentList} />
       )}
       {active === ENUM.SECOND && (
         <Table columnNames={tableColumnNames} tableContent={tableContent} />

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 // styles
-import { TabsStyled, TabButtonStyled } from "../../themes/tab/tabs";
+import { TabsStyled, TabButtonStyled } from "themes/tab/tabs";
 
 const TabBar = ({ names, setActiveTab, active }) => {
   return (

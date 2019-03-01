@@ -1,23 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 // styles
-import TableWrapper from "../../themes/table/tableWrapper";
-import TableHead from "../../themes/table/tableHead";
-import TableContent from "../../themes/table/tableContent";
+import TableWrapper from "themes/table/tableWrapper";
+import TableHead from "themes/table/tableHead";
+import TableContent from "themes/table/tableContent";
 
 const Table = ({ columnNames, tableContent }) => {
-  const headers = columnNames.map((item, index) => (
-    <TableHead key={index}>{item}</TableHead>
-  ));
-  const content = tableContent.map(item =>
-    Object.keys(item).map(key => (
-      <TableContent key={key}>{item[key]}</TableContent>
-    ))
-  );
   return (
     <TableWrapper columnNames={columnNames}>
-      {headers}
-      {content}
+      {columnNames.map((item, index) => <TableHead key={index}>{item}</TableHead>)}
+      {tableContent.map(item =>
+        Object.keys(item).map(key => (
+          <TableContent key={key}>{item[key]}</TableContent>
+        )))
+      }
     </TableWrapper>
   );
 };

@@ -17,16 +17,11 @@ export const TabButtonStyled = styled.button`
   height: 50px;
   width: 150px;
   border: none;
-  box-sizing: border-box;
   border-bottom: 4px ${props => (props.isActive ? "solid red" : "transparent")};
-  border-color: red;
   background-color: transparent;
   padding: 0;
   outline: none;
   cursor: pointer;
-  font-size: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #f4f4f4;
 
   @media (max-width: 480px) {

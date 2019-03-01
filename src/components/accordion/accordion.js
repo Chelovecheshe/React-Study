@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-
 // styles
 import {
   AccordionStyled,
   AccordionContent,
   Arrow
-} from "../../themes/accordion/accordion";
-import { ENUM } from "../../constants/constans";
+} from "themes/accordion/accordion";
+// constants
+import { ENUM } from "constants/constans";
 
 const Accordion = ({ names, content }) => {
   const [value, setValue] = useState(ENUM.INITIAL);

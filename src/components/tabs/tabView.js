@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 // components
-import Table from "containers/table/table";
+import Table from "components/table/table";
 // containers
-import Accordion from "containers/accordion/accordion";
+import Accordion from "components/accordion/accordion";
 // styles
 import TabContent from "themes/tab/tabContent";
 // constants
@@ -13,7 +13,7 @@ import {
   contentList,
   tableColumnNames,
   tableContent
-} from "constants/constans";
+} from "constants/constants";
 
 const TabView = ({ active }) => {
   return (

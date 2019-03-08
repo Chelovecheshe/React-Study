@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 // styles
 import {
@@ -6,21 +6,17 @@ import {
   AccordionContent,
   Arrow
 } from "themes/accordion/accordion";
-// constants
-import { ENUM } from "constants/constans";
+// libs
+import withAccordion from "libs/withAccordion";
 
-const Accordion = ({ names, content }) => {
-  const [value, setValue] = useState(ENUM.INITIAL);
-
-  const showContent = index => setValue(value === index ? ENUM.INITIAL : index);
-
+const Accordion = ({ names, content, active, setActive }) => {
   return (
     <>
       {names.map((item, index) => (
         <AccordionStyled key={index}>
           {item}
-          <Arrow onClick={() => showContent(index)} />
-          {value === index && (
+          <Arrow key={index} onClick={() => setActive(index)} />
+          {active === index && (
             <AccordionContent key={index}>{content[index]}</AccordionContent>
           )}
         </AccordionStyled>
@@ -34,4 +30,4 @@ Accordion.propTypes = {
   content: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
-export default Accordion;
+export default withAccordion(Accordion);

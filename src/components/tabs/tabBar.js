@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 // styles
 import { TabsStyled, TabButtonStyled } from "themes/tab/tabs";
 
-const TabBar = ({ names, setActiveTab, active }) => {
+const TabBar = ({ buttonsNames, active, setActiveTab }) => {
   return (
     <TabsStyled>
-      {names.map((item, index) => (
+      {buttonsNames.map((item, index) => (
         <TabButtonStyled
           key={index}
           onClick={() => setActiveTab(index)}

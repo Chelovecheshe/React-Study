@@ -1,22 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 
 // containers
-import TabBar from "components/tab/tabBar";
-import TabView from "components/tab/tabView";
+import Tabs from "containers/tabs/tabs";
 // styles
 import GlobalStyle from "themes/globalStyle";
 import Wrapper from "themes/wrapper";
 // constants
-import { ENUM, buttonsNames } from "constants/constans";
+import { buttonsNames } from "constants/constants";
+import TabBar from "./components/tabs/tabBar";
+import TabView from "./components/tabs/tabView";
 
 const App = () => {
-  const [value, setValue] = useState(ENUM.FIRST);
-
   return (
     <Wrapper>
       <GlobalStyle />
-      <TabBar names={buttonsNames} setActiveTab={setValue} active={value} />
-      <TabView active={value} />
+      <Tabs
+        render={({ active, setActive }) => (
+          <>
+            <TabBar
+              buttonsNames={buttonsNames}
+              setActiveTab={setActive}
+              active={active}
+            />
+            <TabView active={active} />
+          </>
+        )}
+      />
     </Wrapper>
   );
 };

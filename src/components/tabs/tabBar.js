@@ -9,7 +9,7 @@ const TabBar = ({ buttonsNames, active, setActiveTab }) => {
       {buttonsNames.map((item, index) => (
         <TabButtonStyled
           key={index}
-          onClick={() => setActiveTab(index)}
+          onClick={() => (active === index ? null : setActiveTab(index))}
           isActive={active === index}
         >
           {item}

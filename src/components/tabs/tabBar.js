@@ -20,7 +20,7 @@ const TabBar = ({ buttonsNames, active, setActiveTab }) => {
 };
 
 TabBar.propTypes = {
-  names: PropTypes.arrayOf(PropTypes.string).isRequired,
+  buttonsNames: PropTypes.arrayOf(PropTypes.string).isRequired,
   setActiveTab: PropTypes.func.isRequired,
   active: PropTypes.number.isRequired
 };

@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 // components
 import Table from "components/table/table";
+import Snackbar from "components/snackbar/snackbar";
 // containers
 import Accordion from "components/accordion/accordion";
 // styles
@@ -12,7 +13,10 @@ import {
   accordionsNames,
   contentList,
   tableColumnNames,
-  tableContent
+  tableContent,
+  options,
+  position,
+  controlDirection
 } from "constants/constants";
 
 const TabView = ({ active }) => {
@@ -24,7 +28,15 @@ const TabView = ({ active }) => {
       {active === ENUM.SECOND && (
         <Table columnNames={tableColumnNames} tableContent={tableContent} />
       )}
-      {active === ENUM.THIRD && <>Snack bar creator arrives soon here</>}
+      {active === ENUM.THIRD && (
+        <Snackbar
+          buttonName={"Create"}
+          textHint={"Enter name of new snackbar"}
+          options={options}
+          position={position}
+          controlDirection={controlDirection}
+        />
+      )}
     </TabContent>
   );
 };

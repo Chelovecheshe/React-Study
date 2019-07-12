@@ -62,3 +62,13 @@ export const tableContent = [
     protein: 3.9
   }
 ];
+export const options = ["Error", "Warning", "Information", "Success"];
+export const position = [
+  "Top-left",
+  "Top-center",
+  "Top-right",
+  "Bottom-left",
+  "Bottom-center",
+  "Bottom-right"
+];
+export const controlDirection = ["Right", "Top", "Left", "Down"];

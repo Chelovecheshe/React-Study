@@ -2,13 +2,16 @@ import React from "react";
 
 // containers
 import Tabs from "containers/tabs/tabs";
+// components
+import TabBar from "./components/tabs/tabBar";
+import TabView from "./components/tabs/tabView";
 // styles
 import GlobalStyle from "themes/globalStyle";
 import Wrapper from "themes/wrapper";
 // constants
 import { buttonsNames } from "constants/constants";
-import TabBar from "./components/tabs/tabBar";
-import TabView from "./components/tabs/tabView";
+// actions
+import { changeOption } from "./store/actions";
 
 const App = () => {
   return (
@@ -22,7 +25,7 @@ const App = () => {
               setActiveTab={setActive}
               active={active}
             />
-            <TabView active={active} />
+            <TabView active={active} changeOption={changeOption} />
           </>
         )}
       />

@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const AccordionStyled = styled.div`
   background-color: #ffffff;
-  margin-bottom: 10px;
+  margin: 0 12px 12px 12px;
   border-radius: 3px;
   line-height: 20px;
   padding: 5px 10px;
 
-  &:last-child {
-    margin-bottom: 0;
+  &:nth-child(1) {
+    margin-top: 12px;
   }
 `;
 

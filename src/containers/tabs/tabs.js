@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { ENUM } from "../../constants/constants";
 
 const Tabs = ({ render }) => {
-  const [value, setValue] = useState(ENUM.FIRST);
+  const [value, setValue] = useState(ENUM.THIRD);
 
   return (
     <>

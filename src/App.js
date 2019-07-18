@@ -6,7 +6,7 @@ import Authentication from "components/authentication";
 // styles
 import GlobalStyle from "themes/globalStyle";
 import Wrapper from "themes/wrapper";
-import { StyledListNavigation, StyledLink } from "./themes/navigation";
+import { StyledListNavigation, StyledLink } from "themes/navigation";
 // router
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 

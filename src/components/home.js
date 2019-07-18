@@ -5,9 +5,9 @@ import Tabs from "containers/tabs/tabs";
 // components
 import TabBar from "components/tabs/tabBar";
 import TabView from "components/tabs/tabView";
-import { buttonsNames } from "../constants/constants";
+import { buttonsNames } from "constants/constants";
 // actions
-import { changeOption } from "../store/actions";
+import { changeOption } from "store/actions";
 
 const Home = () => {
   return (

@@ -30,9 +30,7 @@ const Snackbar = ({
   return (
     <SnackbarStyled>
       <SnackbarInput textHint={textHint} onChange={handleChangeText} />
-      <SnackbarButton onClick={() => console.log(1)}>
-        {buttonName || "Create"}
-      </SnackbarButton>
+      <SnackbarButton>{buttonName || "Create"}</SnackbarButton>
       <SnackbarSettings>
         <SnackbarSettingsChooseWrapper>
           {options.map((item, index) => (

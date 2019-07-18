@@ -1,34 +1,33 @@
 import React from "react";
 
-// containers
-import Tabs from "containers/tabs/tabs";
 // components
-import TabBar from "./components/tabs/tabBar";
-import TabView from "./components/tabs/tabView";
+import Home from "components/home";
+import Authentication from "components/authentication";
 // styles
 import GlobalStyle from "themes/globalStyle";
 import Wrapper from "themes/wrapper";
-// constants
-import { buttonsNames } from "constants/constants";
-// actions
-import { changeOption } from "./store/actions";
+import { StyledListNavigation, StyledLink } from "./themes/navigation";
+// router
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const App = () => {
   return (
     <Wrapper>
       <GlobalStyle />
-      <Tabs
-        render={({ active, setActive }) => (
-          <>
-            <TabBar
-              buttonsNames={buttonsNames}
-              setActiveTab={setActive}
-              active={active}
-            />
-            <TabView active={active} changeOption={changeOption} />
-          </>
-        )}
-      />
+      <Router>
+        <StyledListNavigation>
+          <StyledLink>
+            <Link to="/">Home</Link>
+          </StyledLink>
+          <StyledLink>
+            <Link to="/auth">Auth</Link>
+          </StyledLink>
+        </StyledListNavigation>
+
+        <Route exact path="/" component={Home} />
+        <Route path="/auth" component={Authentication} />
+        <Route />
+      </Router>
     </Wrapper>
   );
 };

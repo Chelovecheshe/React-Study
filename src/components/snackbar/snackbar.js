@@ -29,7 +29,7 @@ const Snackbar = ({
 
   return (
     <SnackbarStyled>
-      <SnackbarInput textHint={textHint} onChange={e => handleChangeText(e)} />
+      <SnackbarInput textHint={textHint} onChange={handleChangeText} />
       <SnackbarButton onClick={() => console.log(1)}>
         {buttonName || "Create"}
       </SnackbarButton>

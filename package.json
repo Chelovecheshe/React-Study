@@ -9,6 +9,7 @@
     "react-dom": "next",
     "react-redux": "^7.0.2",
     "react-scripts": "^3.0.1",
+    "react-router-dom": "5.0.1",
     "redux": "^4.0.1",
     "styled-components": "^4.1.3"
   },

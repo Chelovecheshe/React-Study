@@ -5,6 +5,7 @@ export const StyledListNavigation = styled.ul`
   margin: 0;
   padding: 10px;
   float: right;
+  font-size: 20px;
 `;
 
 export const StyledLink = styled.li`

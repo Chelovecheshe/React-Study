@@ -6,7 +6,8 @@ import { devToolsEnhancer } from "redux-devtools-extension";
 
 export const initialState = {
   optionSelected: -1,
-  snackbarText: ""
+  snackbarText: "",
+  snackbarIsVisible: false
 };
 
 const store = createStore(rootReducer, devToolsEnhancer());

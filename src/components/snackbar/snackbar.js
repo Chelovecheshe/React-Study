@@ -4,16 +4,13 @@ import React from "react";
 import SnackbarStyled from "themes/snackbar/snackbar";
 import SnackbarInput from "themes/snackbar/snackbarInput";
 import SnackbarButton from "themes/snackbar/snackbarButton";
-import SnackbarSettings from "themes/snackbar/snackbarSettings";
+import SnackbarSettingsWrapper from "themes/snackbar/snackbarSettings";
 import {
   SnackbarSettingsChoose,
   SnackbarSettingsChooseWrapper,
   SnackbarSettingsChooseName,
   SnackbarSettingsChooseRadioButton
 } from "themes/snackbar/snackbarSettingsChoose";
-// redux
-import { connect } from "react-redux";
-import { changeText } from "store/actions";
 
 const Snackbar = ({
   buttonName,
@@ -21,17 +18,17 @@ const Snackbar = ({
   options,
   position,
   controlDirection,
-  changeText
+  changeTextAction
 }) => {
-  const handleChangeText = event => {
-    changeText(event.target.value);
-  };
+  const handleChangeText = event =>
+    changeTextAction.changeTextAction(event.target.value);
 
   return (
     <SnackbarStyled>
       <SnackbarInput textHint={textHint} onChange={handleChangeText} />
       <SnackbarButton>{buttonName || "Create"}</SnackbarButton>
-      <SnackbarSettings>
+      {/* TODO simplify components */}
+      <SnackbarSettingsWrapper>
         <SnackbarSettingsChooseWrapper>
           {options.map((item, index) => (
             <SnackbarSettingsChoose key={index}>
@@ -71,23 +68,9 @@ const Snackbar = ({
             </SnackbarSettingsChoose>
           ))}
         </SnackbarSettingsChooseWrapper>
-      </SnackbarSettings>
+      </SnackbarSettingsWrapper>
     </SnackbarStyled>
   );
 };
 
-const mapStateToProps = state => {
-  console.log(state);
-  return {
-    snackbarText: state.snackbarText
-  };
-};
-
-const mapDispatchToProps = {
-  changeText
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Snackbar);
+export default Snackbar;

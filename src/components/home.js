@@ -9,7 +9,7 @@ import { buttonsNames } from "constants/constants";
 // actions
 import { changeOption } from "store/actions";
 
-const Home = () => {
+const Home = changeTextAction => {
   return (
     <Tabs
       render={({ active, setActive }) => (
@@ -19,7 +19,11 @@ const Home = () => {
             setActiveTab={setActive}
             active={active}
           />
-          <TabView active={active} changeOption={changeOption} />
+          <TabView
+            active={active}
+            changeOption={changeOption}
+            changeTextAction={changeTextAction}
+          />
         </>
       )}
     />

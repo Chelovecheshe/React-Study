@@ -19,7 +19,7 @@ import {
   controlDirection
 } from "constants/constants";
 
-const TabView = ({ active }) => {
+const TabView = ({ active, changeTextAction }) => {
   return (
     <TabContent>
       {active === ENUM.FIRST && (
@@ -35,6 +35,7 @@ const TabView = ({ active }) => {
           options={options}
           position={position}
           controlDirection={controlDirection}
+          changeTextAction={changeTextAction}
         />
       )}
     </TabContent>

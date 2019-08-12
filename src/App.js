@@ -12,6 +12,7 @@ import { StyledListNavigation, StyledLink } from "themes/navigation";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // redux
 import { connect } from "react-redux";
+import { initialState } from "store/store";
 import {
   changeOption,
   changeText,
@@ -19,7 +20,6 @@ import {
 } from "store/actions";
 
 const App = ({ changeOption, changeTextAction, changeSnackbarVisibility }) => {
-  console.log(changeTextAction);
   return (
     <Wrapper>
       <GlobalStyle />
@@ -47,7 +47,7 @@ const App = ({ changeOption, changeTextAction, changeSnackbarVisibility }) => {
         <Route path="/auth" component={Authentication} />
         <Route />
       </Router>
-      <SnackbarPresentation />
+      <SnackbarPresentation isVisible={initialState.snackbarIsVisible} />
     </Wrapper>
   );
 };

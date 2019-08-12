@@ -6,10 +6,10 @@ import {
   SnackbarPresentationVisibleStyled
 } from "themes/snackbar/snackbarPresentation";
 
-const SnackbarPresentation = () => {
+const SnackbarPresentation = ({ isVisible }) => {
   return (
     <>
-      {true ? (
+      {isVisible ? (
         <SnackbarPresentationVisibleStyled>
           {"a"}
         </SnackbarPresentationVisibleStyled>

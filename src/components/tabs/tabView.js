@@ -19,7 +19,12 @@ import {
   controlDirection
 } from "constants/constants";
 
-const TabView = ({ active, changeTextAction }) => {
+const TabView = ({
+  active,
+  changeTextAction,
+  changeSnackbarVisibilityAction,
+  snackbarIsVisible
+}) => {
   return (
     <TabContent>
       {active === ENUM.FIRST && (
@@ -30,12 +35,14 @@ const TabView = ({ active, changeTextAction }) => {
       )}
       {active === ENUM.THIRD && (
         <Snackbar
-          buttonName={"Create"}
+          buttonName={snackbarIsVisible ? "Hide" : "Create"}
           textHint={"Enter name of new snackbar"}
           options={options}
           position={position}
           controlDirection={controlDirection}
           changeTextAction={changeTextAction}
+          changeSnackbarVisibilityAction={changeSnackbarVisibilityAction}
+          snackbarIsVisible={snackbarIsVisible}
         />
       )}
     </TabContent>

@@ -12,14 +12,10 @@ import { StyledListNavigation, StyledLink } from "themes/navigation";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // redux
 import { connect } from "react-redux";
-import { initialState } from "store/store";
-import {
-  changeOption,
-  changeText,
-  changeSnackbarVisibility
-} from "store/actions";
+import store from "store/store";
+import { changeText, changeSnackbarVisibility } from "store/actions";
 
-const App = ({ changeOption, changeTextAction, changeSnackbarVisibility }) => {
+const App = ({ changeTextAction, changeSnackbarVisibilityAction }) => {
   return (
     <Wrapper>
       <GlobalStyle />
@@ -38,32 +34,34 @@ const App = ({ changeOption, changeTextAction, changeSnackbarVisibility }) => {
           render={props => (
             <Home
               {...props}
-              changeOption={changeOption}
               changeTextAction={changeTextAction}
-              changeSnackbarVisibility={changeSnackbarVisibility}
+              changeSnackbarVisibilityAction={changeSnackbarVisibilityAction}
+              snackbarIsVisible={store.getState().snackbarIsVisible}
             />
           )}
         />
         <Route path="/auth" component={Authentication} />
         <Route />
       </Router>
-      <SnackbarPresentation isVisible={initialState.snackbarIsVisible} />
+      <SnackbarPresentation
+        isVisible={store.getState().snackbarIsVisible}
+        text={store.getState().snackbarText}
+      />
     </Wrapper>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    optionSelected: state.optionSelected,
     snackbarText: state.snackbarText,
     snackbarIsVisible: state.snackbarIsVisible
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  changeOption: value => dispatch(changeOption(value)),
   changeTextAction: value => dispatch(changeText(value)),
-  changeSnackbarVisibility: value => dispatch(changeSnackbarVisibility(value))
+  changeSnackbarVisibilityAction: value =>
+    dispatch(changeSnackbarVisibility(value))
 });
 
 export default connect(

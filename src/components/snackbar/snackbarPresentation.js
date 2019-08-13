@@ -2,21 +2,17 @@ import React from "react";
 
 // styles
 import {
-  SnackbarPresentationHiddenStyled,
-  SnackbarPresentationVisibleStyled
+  SnackbarPresentationVisibleStyled,
+  SnackbarPresentationHiddenStyled
 } from "themes/snackbar/snackbarPresentation";
 
-const SnackbarPresentation = ({ isVisible }) => {
-  return (
-    <>
-      {isVisible ? (
-        <SnackbarPresentationVisibleStyled>
-          {"a"}
-        </SnackbarPresentationVisibleStyled>
-      ) : (
-        <SnackbarPresentationHiddenStyled />
-      )}
-    </>
+const SnackbarPresentation = ({ isVisible, text, type }) => {
+  return isVisible ? (
+    <SnackbarPresentationVisibleStyled type={type}>
+      {text}
+    </SnackbarPresentationVisibleStyled>
+  ) : (
+    <SnackbarPresentationHiddenStyled type={type} />
   );
 };
 

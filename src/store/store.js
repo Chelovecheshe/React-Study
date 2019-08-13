@@ -5,7 +5,6 @@ import { rootReducer } from "store/reducers";
 import { devToolsEnhancer } from "redux-devtools-extension";
 
 export const initialState = {
-  optionSelected: -1,
   snackbarText: "",
   snackbarIsVisible: false
 };

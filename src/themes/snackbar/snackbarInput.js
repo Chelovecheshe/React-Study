@@ -4,7 +4,7 @@ const SnackbarInput = styled.input.attrs({
   placeholder: props => props.textHint || "Enter name"
 })`
   width: 200px;
-  height: 1.2em;
+  height: 1.44em;
   margin: 15px auto 0 auto;
   border-radius: 3px;
   border: 1px solid #e3ad42;

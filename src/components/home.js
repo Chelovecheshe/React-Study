@@ -6,10 +6,12 @@ import Tabs from "containers/tabs/tabs";
 import TabBar from "components/tabs/tabBar";
 import TabView from "components/tabs/tabView";
 import { buttonsNames } from "constants/constants";
-// actions
-import { changeOption } from "store/actions";
 
-const Home = changeTextAction => {
+const Home = ({
+  changeTextAction,
+  changeSnackbarVisibilityAction,
+  snackbarIsVisible
+}) => {
   return (
     <Tabs
       render={({ active, setActive }) => (
@@ -21,8 +23,9 @@ const Home = changeTextAction => {
           />
           <TabView
             active={active}
-            changeOption={changeOption}
             changeTextAction={changeTextAction}
+            changeSnackbarVisibilityAction={changeSnackbarVisibilityAction}
+            snackbarIsVisible={snackbarIsVisible}
           />
         </>
       )}

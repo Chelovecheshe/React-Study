@@ -62,8 +62,8 @@ export const tableContent = [
     protein: 3.9
   }
 ];
-export const options = ["Error", "Warning", "Information", "Success"];
-export const position = [
+export const snackbarType = ["Error", "Warning", "Information", "Success"];
+export const snackbarPosition = [
   "Top-left",
   "Top-center",
   "Top-right",

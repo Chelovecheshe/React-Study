@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//TODO pepelsbey svg icons
 export const SnackbarSettingsChooseWrapper = styled.div`
   display: flex;
   flex-direction: column;

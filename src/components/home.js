@@ -8,7 +8,9 @@ import TabView from "components/tabs/tabView";
 import { buttonsNames } from "constants/constants";
 
 const Home = ({
+  changePositionAction,
   changeTextAction,
+  changeTypeAction,
   changeSnackbarVisibilityAction,
   snackbarIsVisible
 }) => {
@@ -23,6 +25,8 @@ const Home = ({
           />
           <TabView
             active={active}
+            changePositionAction={changePositionAction}
+            changeTypeAction={changeTypeAction}
             changeTextAction={changeTextAction}
             changeSnackbarVisibilityAction={changeSnackbarVisibilityAction}
             snackbarIsVisible={snackbarIsVisible}

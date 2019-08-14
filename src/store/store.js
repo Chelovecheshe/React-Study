@@ -5,6 +5,8 @@ import { rootReducer } from "store/reducers";
 import { devToolsEnhancer } from "redux-devtools-extension";
 
 export const initialState = {
+  snackbarPosition: "Bottom-left",
+  snackbarType: "Information",
   snackbarText: "",
   snackbarIsVisible: false
 };

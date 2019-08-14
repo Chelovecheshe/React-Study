@@ -5,14 +5,31 @@ import {
   SnackbarPresentationVisibleStyled,
   SnackbarPresentationHiddenStyled
 } from "themes/snackbar/snackbarPresentation";
+import { SnackbarCloseButtonStyled } from "themes/snackbar/snackbarCloseButton";
 
-const SnackbarPresentation = ({ isVisible, text, type }) => {
-  return isVisible ? (
-    <SnackbarPresentationVisibleStyled type={type}>
-      {text}
+const SnackbarPresentation = ({
+  snackbarType,
+  snackbarPosition,
+  snackbarText,
+  snackbarIsVisible,
+  changeSnackbarVisibilityAction
+}) => {
+  const handleCloseClick = () =>
+    changeSnackbarVisibilityAction(!snackbarIsVisible);
+
+  return snackbarIsVisible ? (
+    <SnackbarPresentationVisibleStyled
+      snackbarType={snackbarType}
+      snackbarPosition={snackbarPosition}
+    >
+      {snackbarText}
+      <SnackbarCloseButtonStyled onClick={handleCloseClick} />
     </SnackbarPresentationVisibleStyled>
   ) : (
-    <SnackbarPresentationHiddenStyled type={type} />
+    <SnackbarPresentationHiddenStyled
+      snackbarType={snackbarType}
+      snackbarPosition={snackbarPosition}
+    />
   );
 };
 

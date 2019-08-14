@@ -14,13 +14,15 @@ import {
   contentList,
   tableColumnNames,
   tableContent,
-  options,
-  position,
+  snackbarType,
+  snackbarPosition,
   controlDirection
 } from "constants/constants";
 
 const TabView = ({
   active,
+  changePositionAction,
+  changeTypeAction,
   changeTextAction,
   changeSnackbarVisibilityAction,
   snackbarIsVisible
@@ -37,9 +39,11 @@ const TabView = ({
         <Snackbar
           buttonName={snackbarIsVisible ? "Hide" : "Create"}
           textHint={"Enter name of new snackbar"}
-          options={options}
-          position={position}
+          snackbarType={snackbarType}
+          snackbarPosition={snackbarPosition}
           controlDirection={controlDirection}
+          changePositionAction={changePositionAction}
+          changeTypeAction={changeTypeAction}
           changeTextAction={changeTextAction}
           changeSnackbarVisibilityAction={changeSnackbarVisibilityAction}
           snackbarIsVisible={snackbarIsVisible}

@@ -13,9 +13,19 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // redux
 import { connect } from "react-redux";
 import store from "store/store";
-import { changeText, changeSnackbarVisibility } from "store/actions";
+import {
+  changePosition,
+  changeType,
+  changeText,
+  changeSnackbarVisibility
+} from "store/actions";
 
-const App = ({ changeTextAction, changeSnackbarVisibilityAction }) => {
+const App = ({
+  changePositionAction,
+  changeTypeAction,
+  changeTextAction,
+  changeSnackbarVisibilityAction
+}) => {
   return (
     <Wrapper>
       <GlobalStyle />
@@ -34,6 +44,8 @@ const App = ({ changeTextAction, changeSnackbarVisibilityAction }) => {
           render={props => (
             <Home
               {...props}
+              changePositionAction={changePositionAction}
+              changeTypeAction={changeTypeAction}
               changeTextAction={changeTextAction}
               changeSnackbarVisibilityAction={changeSnackbarVisibilityAction}
               snackbarIsVisible={store.getState().snackbarIsVisible}
@@ -44,8 +56,11 @@ const App = ({ changeTextAction, changeSnackbarVisibilityAction }) => {
         <Route />
       </Router>
       <SnackbarPresentation
-        isVisible={store.getState().snackbarIsVisible}
-        text={store.getState().snackbarText}
+        snackbarType={store.getState().snackbarType}
+        snackbarPosition={store.getState().snackbarPosition}
+        snackbarText={store.getState().snackbarText}
+        snackbarIsVisible={store.getState().snackbarIsVisible}
+        changeSnackbarVisibilityAction={changeSnackbarVisibilityAction}
       />
     </Wrapper>
   );
@@ -53,12 +68,16 @@ const App = ({ changeTextAction, changeSnackbarVisibilityAction }) => {
 
 const mapStateToProps = state => {
   return {
+    snackbarType: state.snackbarType,
+    snackbarPosition: state.snackbarPosition,
     snackbarText: state.snackbarText,
     snackbarIsVisible: state.snackbarIsVisible
   };
 };
 
 const mapDispatchToProps = dispatch => ({
+  changePositionAction: value => dispatch(changePosition(value)),
+  changeTypeAction: value => dispatch(changeType(value)),
   changeTextAction: value => dispatch(changeText(value)),
   changeSnackbarVisibilityAction: value =>
     dispatch(changeSnackbarVisibility(value))

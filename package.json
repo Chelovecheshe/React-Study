@@ -10,7 +10,6 @@
     "@types/react-redux": "7.1.0",
     "awesome-typescript-loader": "^5.2.1",
     "prettier": "^1.16.4",
-    "prop-types": "^15.7.2",
     "react": "next",
     "react-dom": "next",
     "react-router-dom": "5.0.1",

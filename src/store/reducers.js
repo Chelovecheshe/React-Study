@@ -28,7 +28,7 @@ export const rootReducer = (state = initialState, action) => {
     case CHANGE_SNACKBAR_VISIBILITY:
       return {
         ...state,
-        snackbarIsVisible: action.payload
+        snackbarVisibility: action.payload
       };
 
     default:

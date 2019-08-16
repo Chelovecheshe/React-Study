@@ -1,41 +1,55 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 
 //styles
-import SnackbarStyled from "themes/snackbar/snackbar";
-import SnackbarInput from "themes/snackbar/snackbarInput";
-import SnackbarButton from "themes/snackbar/snackbarButton";
-import SnackbarSettingsWrapper from "themes/snackbar/snackbarSettings";
+import SnackbarStyled from "../../themes/snackbar/snackbar";
+import SnackbarInput from "../../themes/snackbar/snackbarInput";
+import SnackbarButton from "../../themes/snackbar/snackbarButton";
+import SnackbarSettingsWrapper from "../../themes/snackbar/snackbarSettings";
 import {
   SnackbarSettingsChoose,
   SnackbarSettingsChooseWrapper,
   SnackbarSettingsChooseName,
   SnackbarSettingsChooseRadioButton
-} from "themes/snackbar/snackbarSettingsChoose";
+} from "../../themes/snackbar/snackbarSettingsChoose";
 
-const Snackbar = ({
+type SnackbarComponent = {
+  buttonName: string,
+  textHint: string,
+  snackbarType: string[],
+  snackbarPosition: string[],
+  controlDirection: string[],
+  changeSnackbarPositionAction: (snackbarPosition: string) => { type: string; payload: string; },
+  changeSnackbarTypeAction: (snackbarType: string) => { type: string; payload: string; },
+  changeSnackbarTextAction: (snackbarText: string) => { type: string; payload: string; },
+  changeSnackbarVisibilityAction: (snackbarVisibility: boolean) => { type: string; payload: boolean; },
+  snackbarVisibility: boolean
+}
+
+const Snackbar: FunctionComponent<SnackbarComponent> = ({
   buttonName,
   textHint,
   snackbarType,
   snackbarPosition,
   controlDirection,
-  changePositionAction,
-  changeTypeAction,
-  changeTextAction,
+  changeSnackbarPositionAction,
+  changeSnackbarTypeAction,
+  changeSnackbarTextAction,
   changeSnackbarVisibilityAction,
-  snackbarIsVisible
+  snackbarVisibility
 }) => {
-  const handleChangeText = event => changeTextAction(event.target.value);
+  const handleChangeText = event =>
+    changeSnackbarTextAction(event.target.value);
 
   const handleButtonClick = () => {
-    changeSnackbarVisibilityAction(!snackbarIsVisible);
+    changeSnackbarVisibilityAction(!snackbarVisibility);
   };
 
   const handleTypeChanged = index => () => {
-    changeTypeAction(snackbarType[index]);
+    changeSnackbarTypeAction(snackbarType[index]);
   };
 
   const handlePositionChange = index => () => {
-    changePositionAction(snackbarPosition[index]);
+    changeSnackbarPositionAction(snackbarPosition[index]);
   };
 
   // TODO set function and rules for animation direction

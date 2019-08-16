@@ -8,7 +8,7 @@ export const initialState = {
   snackbarPosition: "Bottom-left",
   snackbarType: "Information",
   snackbarText: "",
-  snackbarIsVisible: false
+  snackbarVisibility: false
 };
 
 const store = createStore(rootReducer, devToolsEnhancer());

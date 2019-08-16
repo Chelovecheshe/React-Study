@@ -1,23 +1,31 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 
 // styles
 import {
   SnackbarPresentationVisibleStyled,
   SnackbarPresentationHiddenStyled
-} from "themes/snackbar/snackbarPresentation";
-import { SnackbarCloseButtonStyled } from "themes/snackbar/snackbarCloseButton";
+} from "../../themes/snackbar/snackbarPresentation";
+import { SnackbarCloseButtonStyled } from "../../themes/snackbar/snackbarCloseButton";
 
-const SnackbarPresentation = ({
+type SnackbarPresentationComponent = {
+  snackbarType: string,
+  snackbarPosition: string,
+  snackbarText: string,
+  snackbarVisibility: string,
+  changeSnackbarVisibilityAction: (snackbarVisibility: boolean) => void
+}
+
+const SnackbarPresentation: FunctionComponent<SnackbarPresentationComponent> = ({
   snackbarType,
   snackbarPosition,
   snackbarText,
-  snackbarIsVisible,
+  snackbarVisibility,
   changeSnackbarVisibilityAction
 }) => {
   const handleCloseClick = () =>
-    changeSnackbarVisibilityAction(!snackbarIsVisible);
+    changeSnackbarVisibilityAction(!snackbarVisibility);
 
-  return snackbarIsVisible ? (
+  return snackbarVisibility ? (
     <SnackbarPresentationVisibleStyled
       snackbarType={snackbarType}
       snackbarPosition={snackbarPosition}

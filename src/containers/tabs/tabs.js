@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // constants
-import { ENUM } from "constants/constants";
+import { ENUM } from "../../constants/constants";
 
 const Tabs = ({ render }) => {
   const [value, setValue] = useState(ENUM.THIRD);

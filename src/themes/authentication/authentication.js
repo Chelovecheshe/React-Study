@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledAuthenticationWrapper = styled.div`
   width: 200px;
   height: 300px;
-  margin: 40px auto 0 auto;
+  margin: 50px auto 0 auto;
 `;
 
 export const StyledAuthenticationInput = styled.input.attrs({
